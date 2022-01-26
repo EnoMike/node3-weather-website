@@ -12,12 +12,13 @@ const forecast = (lat, long, callback) => {
             callback(err, undefined)
         }
         else {
-            const {temperature:temp, feelslike:feelslike, weather_descriptions:weather} = body.current
+            const {temperature:temp, feelslike:feelslike, weather_descriptions:weather, humidity:humidity} = body.current
             const desc = weather[0]
             callback(undefined, {
                 temp,
                 feelslike,
-                desc
+                desc,
+                humidity
             })
         }
 

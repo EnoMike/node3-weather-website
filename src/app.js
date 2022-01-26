@@ -86,13 +86,13 @@ app.get('/weather', (req, res) => {
                 return res.send({error})
             }
         
-            forecast.fore(lat, long, (error1, {temp, feelslike, desc} = {}) => {
+            forecast.fore(lat, long, (error1, {temp, feelslike, desc, humidity} = {}) => {
                 if(error1) { 
                     return res.send({error: error1})
                 }
                 // res.send(desc + '. It is currently '+temp+' degrees out in '+place+'. It feels like '+feelslike+' degrees out');
                 res.send({
-                    data: desc + '. It is currently '+temp+' degrees out in '+place+'. It feels like '+feelslike+' degrees out'
+                    data: desc + '. It is currently '+temp+' degrees out in '+place+'. It feels like '+feelslike+' degrees out but the humidity level is ' +humidity
                 })
             })
         })
